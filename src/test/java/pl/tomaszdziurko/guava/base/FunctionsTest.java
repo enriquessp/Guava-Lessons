@@ -2,6 +2,7 @@ package pl.tomaszdziurko.guava.base;
 
 import com.google.common.base.Function;
 import com.google.common.base.Functions;
+import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -40,6 +41,42 @@ public class FunctionsTest {
         // then
         assertThat(capitalCities).contains("Warsaw", "Madrid");
     }
+    
+    @Test
+    public void shouldUseForMapFunctionFilter() throws Exception {
+
+        // given
+        Map<String, Country> map = Maps.newHashMap();
+        map.put(Country.POLAND.getName(), Country.POLAND);
+        map.put(Country.BELGIUM.getName(), Country.BELGIUM);
+        map.put(Country.SPAIN.getName(), Country.SPAIN);
+        map.put(Country.ENGLAND.getName(), Country.ENGLAND);
+
+        // when
+        Function<String, Country> capitalCityFromCountryName = Functions.forMap(map);
+
+        List<String> countries = Lists.newArrayList();
+        countries.add(Country.POLAND.getName());
+        countries.add(Country.BELGIUM.getName());
+
+        // then
+        Collection<Country> capitalCities = Collections2.transform(countries, capitalCityFromCountryName);
+
+        assertThat(capitalCities).containsOnly(Country.POLAND, Country.BELGIUM);
+
+        Collection<Country> allCountry = map.values();
+        Predicate<? super Country> predicate = new Predicate<Country>() {
+
+			public boolean apply(@javax.annotation.Nullable Country country) {
+				
+				return country.getName().equals(Country.POLAND.getName()) || country.getName().equals(Country.BELGIUM.getName());
+			}
+		};
+		Collection<Country> capitalCities2 = Collections2.filter(allCountry, predicate);
+		assertThat(capitalCities2).containsOnly(Country.POLAND, Country.BELGIUM);
+
+    }
+
 
     @Test
     public void shouldComposeTwoFunctions() throws Exception {

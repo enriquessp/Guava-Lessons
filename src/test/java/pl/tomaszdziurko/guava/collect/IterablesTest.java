@@ -23,7 +23,6 @@ public class IterablesTest {
 
         // given
         Predicate<String> lengthPredicate = new Predicate<String> () {
-            @Override
             public boolean apply(@Nullable String input) {
                 if(input == null) {
                     return false;
@@ -43,7 +42,6 @@ public class IterablesTest {
         // given
         Predicate<String> emptyOrNullPredicate = new Predicate<String> () {
 
-            @Override
             public boolean apply(@Nullable String input) {
                 return Strings.isNullOrEmpty(input);
             }
@@ -113,7 +111,6 @@ public class IterablesTest {
 
         // when
         Iterable<Integer> filteredList = Iterables.filter(numbersList, new Predicate<Integer>() {
-            @Override
             public boolean apply(@Nullable Integer input) {
                 if (input == null) {
                     return false;
@@ -208,7 +205,6 @@ public class IterablesTest {
 
         // when
         Iterables.removeIf(numbersList, new Predicate<Integer>() {
-            @Override
             public boolean apply(@Nullable Integer input) {
                 return input < 0;
             }

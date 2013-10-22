@@ -29,10 +29,12 @@ public class Collections2Test {
         Collection<String> capitalCities = Collections2.transform(countries,
                 new Function<Country, String>() {
 
-                    @Override
-                    public String apply(@Nullable Country country) {
-                        return country.getCapitalCity();
-                    }
+					@Nullable
+					public String apply(@Nullable Country country) {
+	                        return country.getCapitalCity();
+					}
+
+                    
                 });
 
         // then
@@ -48,7 +50,6 @@ public class Collections2Test {
         // when
         Collection<Country> countriesFromAfrica = Collections2.filter(countries, new Predicate<Country>() {
 
-            @Override
             public boolean apply(@Nullable Country country) {
                 return Continent.AFRICA.equals(country.getContinent());
             }
@@ -68,7 +69,6 @@ public class Collections2Test {
         Collection<String> capitalCities = Collections2.transform(countries,
                 new Function<Country, String>() {
 
-                    @Override
                     public String apply(@Nullable Country country) {
                         return country.getCapitalCity();
                     }

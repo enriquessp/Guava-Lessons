@@ -1,7 +1,7 @@
 package pl.tomaszdziurko.guava.collect;
 
 import com.google.common.collect.DiscreteDomain;
-import com.google.common.collect.DiscreteDomains;
+import com.google.common.collect.DiscreteDomain;
 import org.testng.annotations.Test;
 
 import static org.fest.assertions.Assertions.assertThat;
@@ -16,7 +16,7 @@ public class DiscreteDomainTest {
     public void shouldReturnNextInt() throws Exception {
 
         // given
-        DiscreteDomain<Integer> integers = DiscreteDomains.integers();
+        DiscreteDomain<Integer> integers = DiscreteDomain.integers();
 
         // when
         Integer next = integers.next(new Integer(100));
@@ -29,7 +29,7 @@ public class DiscreteDomainTest {
     public void shouldReturnPreviousInt() throws Exception {
 
         // given
-        DiscreteDomain<Integer> integers = DiscreteDomains.integers();
+        DiscreteDomain<Integer> integers = DiscreteDomain.integers();
 
         // when
         Integer next = integers.previous(new Integer(100));
@@ -42,7 +42,7 @@ public class DiscreteDomainTest {
     public void shouldReturnDistance() throws Exception {
 
         // given
-        DiscreteDomain<Integer> integers = DiscreteDomains.integers();
+        DiscreteDomain<Integer> integers = DiscreteDomain.integers();
 
         // when
         long distance = integers.distance(100, 150);
@@ -55,7 +55,7 @@ public class DiscreteDomainTest {
     public void shouldReturnMaxAndMinInt() throws Exception {
 
         // given
-        DiscreteDomain<Integer> integers = DiscreteDomains.integers();
+        DiscreteDomain<Integer> integers = DiscreteDomain.integers();
 
         // when
         long min = integers.minValue();

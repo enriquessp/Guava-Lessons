@@ -35,7 +35,6 @@ public class ConstraintsTest {
         // given
         List<Integer> userAgesList = Constraints.constrainedList(Lists.newArrayList(1, 2, 3), new Constraint<Integer>() {
 
-            @Override
             public Integer checkElement(Integer age) {
                 Preconditions.checkNotNull(age);
                 Preconditions.checkArgument(age.intValue() > 0);

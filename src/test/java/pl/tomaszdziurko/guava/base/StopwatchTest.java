@@ -45,7 +45,7 @@ public class StopwatchTest {
         stopwatch.stop();
 
         // then
-        assertThat(stopwatch.toString()).isEqualTo("7200 s");
+        assertThat(stopwatch.toString()).isEqualTo("2.000 h");
         assertThat(stopwatch.elapsedTime(TimeUnit.MINUTES)).isEqualTo(120);
         assertThat(stopwatch.elapsedTime(TimeUnit.HOURS)).isEqualTo(2);
     }

@@ -27,7 +27,6 @@ public class PredicateTest {
         // given
         Predicate<Country> capitalCityProvidedPredicate = new Predicate<Country>() {
 
-            @Override
             public boolean apply(@Nullable Country country) {
                 return !Strings.isNullOrEmpty(country.getCapitalCity());
             }
@@ -48,7 +47,6 @@ public class PredicateTest {
         // given
         Predicate<Country> fromEuropePredicate = new Predicate<Country>() {
 
-            @Override
             public boolean apply(@Nullable Country country) {
                 return Continent.EUROPE.equals(country.getContinent());
             }
@@ -56,7 +54,6 @@ public class PredicateTest {
 
         Predicate<Country> populationPredicate = new Predicate<Country>() {
 
-            @Override
             public boolean apply(@Nullable Country country) {
                 return country.getPopulation() < 20;
             }
